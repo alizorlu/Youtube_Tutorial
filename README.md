@@ -8,3 +8,7 @@ Asp.Net Core Üzerinde Hazırladığım Eğitim Videoları İçin Kaynakları Ba
    * [Doc.Microsoft](https://docs.microsoft.com/tr-tr/aspnet/core/tutorials/razor-pages/sql?view=aspnetcore-3.1&tabs=visual-studio) 
  
 
+Video-3'teki Linkler ;
+* https://docs.microsoft.com/tr-tr/ef/core/miscellaneous/configuring-dbcontext
+* https://docs.microsoft.com/tr-tr/aspnet/core/tutorials/razor-pages/sql?view=aspnetcore-3.1&tabs=visual-studio
+* https://www.learnentityframeworkcore.com/configuration/one-to-many-relationship-configuration
