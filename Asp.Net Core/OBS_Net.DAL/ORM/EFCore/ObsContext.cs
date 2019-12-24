@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.Extensions.Configuration;
 using OBS_Net.Entities.Tables;
 using System;
 using System.Collections.Generic;
@@ -9,9 +10,22 @@ namespace OBS_Net.DAL.ORM.EFCore
 {
     public class ObsContext:DbContext
     {
+        private readonly IConfiguration _configuration;
+        public ObsContext(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
         public ObsContext(DbContextOptions<ObsContext> options)
        : base(options)
         { }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer(_configuration.GetConnectionString("ObsDB"));
+            }
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<LessonForStudent>()
