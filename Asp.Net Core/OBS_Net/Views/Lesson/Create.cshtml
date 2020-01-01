@@ -1,0 +1,40 @@
+﻿@model OBS_Net.Entities.Model.LessonModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           @Html.HiddenFor(sa => Model.Lesson.Id)
+            <div class="form-group">
+                <label asp-for="Lesson.Name" class="control-label"></label>
+                <input asp-for="Lesson.Name" class="form-control" />
+                <span asp-validation-for="Lesson.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lesson.Code" class="control-label"></label>
+                <input asp-for="Lesson.Code" class="form-control" />
+                <span asp-validation-for="Lesson.Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lesson.TeacherId" class="control-label"></label>
+                <select asp-for="Lesson.TeacherId" class ="form-control" asp-items="Model.TeacherList"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

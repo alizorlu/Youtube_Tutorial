@@ -16,8 +16,6 @@ namespace OBS_Net.Entities.Tables
         [ForeignKey("Lesson")]
         public Guid? LessonId { get; set; }
         public virtual Lesson Lesson { get; set; }
-        [ForeignKey("Teacher")]
-        public Guid? TeacherId { get; set; }
-        public virtual Teacher Teacher { get; set; }
+        
     }
 }

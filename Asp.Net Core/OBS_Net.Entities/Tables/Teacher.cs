@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
@@ -14,14 +15,11 @@ namespace OBS_Net.Entities.Tables
         [Required]
         [MaxLength(150)]
         [MinLength(10)]
+        [DisplayName("Öğretmenin Adı Soyadı")]
         public string NameSurname { get; set; }
+        [DisplayName("Ünvanı")]
         [MaxLength(50)]
         public string Tag { get; set; }
-
-        //[ForeignKey("MyLessons")]
-        //public Guid LessonId { get; set; }
-        //public virtual Lesson MyLesson { get; set; }
-
-        public virtual ICollection<LessonForStudent> MeLessons { get; set; }
+        public virtual ICollection<Lesson> MeLessons { get; set; }
     }
 }

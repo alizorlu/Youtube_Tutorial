@@ -21,6 +21,10 @@ namespace OBS_Net.DAL.ORM.EFCore
                 .HasOne(sa => sa.Student)
                 .WithMany(sa => sa.MyLessons)
                 .HasForeignKey(sa => sa.StudentId);
+            modelBuilder.Entity<Lesson>()
+                .HasOne(sa => sa.Teacher)
+                .WithMany(sa => sa.MeLessons)
+                .HasForeignKey(sa => sa.TeacherId);
         }
         public DbSet<Lesson> Lessons { get; set; }
         public DbSet<LessonForStudent> LessonForStudents { get; set; }

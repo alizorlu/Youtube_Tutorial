@@ -10,7 +10,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using OBS_Net.BL.LessonForStudentManager;
+using OBS_Net.BL.LessonManager;
 using OBS_Net.BL.StudentManager;
+using OBS_Net.BL.TeacherManager;
 using OBS_Net.DAL.ORM.EFCore;
 using OBS_Net.Entities.Tables;
 
@@ -45,6 +48,9 @@ namespace OBS_Net
             services.AddScoped(typeof(IObsNetRepository<>), typeof(ObsNetRepository<>));
             //BL
             services.AddScoped<IStudentManager, StudentManager>();
+            services.AddScoped<ITeacherManager, TeacherManager>();
+            services.AddScoped<ILessonManager, LessonManager>();
+            services.AddScoped<ILessonForStudentManager, LessonForStudentManager>();
             #endregion
         }
 

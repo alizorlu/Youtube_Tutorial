@@ -47,6 +47,11 @@ namespace OBS_Net.DAL.ORM.EFCore
             return tables.ToList();
         }
 
+        public IQueryable<T> GetQuery()
+        {
+            return tables;
+        }
+
         public T Update(T model)
         {
             tables.Update(model);

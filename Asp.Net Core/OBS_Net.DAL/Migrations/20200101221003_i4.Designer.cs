@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OBS_Net.DAL.ORM.EFCore;
 
 namespace OBS_Net.DAL.Migrations
 {
     [DbContext(typeof(ObsContext))]
-    partial class ObsContextModelSnapshot : ModelSnapshot
+    [Migration("20200101221003_i4")]
+    partial class i4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

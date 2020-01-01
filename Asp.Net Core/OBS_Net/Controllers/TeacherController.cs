@@ -3,38 +3,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using OBS_Net.BL.StudentManager;
+using OBS_Net.BL.TeacherManager;
 using OBS_Net.Entities.Tables;
 
 namespace OBS_Net.Controllers
 {
-    public class StudentController : Controller
+    public class TeacherController : Controller
     {
-        private readonly IStudentManager _student;
-        public StudentController(IStudentManager student)
+        private readonly ITeacherManager _teacher;
+        public TeacherController(ITeacherManager teacher)
         {
-            _student = student;
+            _teacher = teacher;
         }
-        
         public IActionResult Index()
         {
-            var result = _student.Get();
+            List<Entities.Tables.Teacher> result = _teacher.Get();
             return View(result);
         }
         public IActionResult Create()
         {
-            Student model = _student.GetCreateModel();
+            var model = _teacher.GetCreateModel();
             return View(model);
         }
         [HttpPost]
-        public IActionResult Create(Student model)
+        public IActionResult Create(Teacher teacher)
         {
-            if (base.TryValidateModel(model))
+            if (base.TryValidateModel(teacher))
             {
-                _student.Create(model);
+                _teacher.Create(teacher);
                 return RedirectToAction("Index");
             }
-            return View(model);
+            return View(teacher);
         }
     }
 }
