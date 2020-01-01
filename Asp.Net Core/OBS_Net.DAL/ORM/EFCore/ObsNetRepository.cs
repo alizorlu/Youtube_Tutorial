@@ -10,11 +10,11 @@ namespace OBS_Net.DAL.ORM.EFCore
     public class ObsNetRepository<T> : IObsNetRepository<T> where T : class
     {
 
-        private ObsContext db;
+        private DbContext db;
         private DbSet<T> tables;
-        public ObsNetRepository(IConfiguration configuration)
+        public ObsNetRepository(ObsContext context)
         {
-            db = new ObsContext(configuration);
+            db = context;
             tables = db.Set<T>();
         }
         public void Create(T model)

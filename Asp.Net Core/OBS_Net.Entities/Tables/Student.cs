@@ -24,6 +24,7 @@ namespace OBS_Net.Entities.Tables
     {
         [Key]
         public Guid Id { get; set; } = Guid.NewGuid();
+        [DisplayName("Adı Soyadı")]
         [Required]
         [MaxLength(150)]
         [MinLength(10)]
@@ -34,7 +35,7 @@ namespace OBS_Net.Entities.Tables
         public string StudentNu { get; set; }
         public DateTime RegisterDate { get; set; }
         public bool IsActive { get; set; } = true;
-
+        public string ProfileImage { get; set; }
         public virtual ICollection<LessonForStudent> MyLessons { get; set; }
     }
 }

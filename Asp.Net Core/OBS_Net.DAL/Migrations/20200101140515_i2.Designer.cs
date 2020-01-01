@@ -10,8 +10,8 @@ using OBS_Net.DAL.ORM.EFCore;
 namespace OBS_Net.DAL.Migrations
 {
     [DbContext(typeof(ObsContext))]
-    [Migration("20191219160814_first-2")]
-    partial class first2
+    [Migration("20200101140515_i2")]
+    partial class i2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -72,6 +72,8 @@ namespace OBS_Net.DAL.Migrations
                         .IsRequired()
                         .HasMaxLength(150);
 
+                    b.Property<string>("ProfileImage");
+
                     b.Property<DateTime>("RegisterDate");
 
                     b.Property<string>("StudentNu");
@@ -110,8 +112,7 @@ namespace OBS_Net.DAL.Migrations
 
                     b.HasOne("OBS_Net.Entities.Tables.Teacher", "Teacher")
                         .WithMany("MeLessons")
-                        .HasForeignKey("TeacherId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("TeacherId");
                 });
 #pragma warning restore 612, 618
         }

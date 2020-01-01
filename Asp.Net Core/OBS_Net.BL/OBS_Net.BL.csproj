@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\OBS_Net.DAL\OBS_Net.DAL.csproj" />
+    <ProjectReference Include="..\OBS_Net.Entities\OBS_Net.Entities.csproj" />
+  </ItemGroup>
+
 </Project>

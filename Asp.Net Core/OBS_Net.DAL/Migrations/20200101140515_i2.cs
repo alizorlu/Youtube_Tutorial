@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace OBS_Net.DAL.Migrations
 {
-    public partial class first1 : Migration
+    public partial class i2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -33,7 +33,9 @@ namespace OBS_Net.DAL.Migrations
                     NameSurname = table.Column<string>(maxLength: 150, nullable: false),
                     Grade = table.Column<int>(nullable: false),
                     StudentNu = table.Column<string>(nullable: true),
-                    RegisterDate = table.Column<DateTime>(nullable: false)
+                    RegisterDate = table.Column<DateTime>(nullable: false),
+                    IsActive = table.Column<bool>(nullable: false),
+                    ProfileImage = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

@@ -70,6 +70,8 @@ namespace OBS_Net.DAL.Migrations
                         .IsRequired()
                         .HasMaxLength(150);
 
+                    b.Property<string>("ProfileImage");
+
                     b.Property<DateTime>("RegisterDate");
 
                     b.Property<string>("StudentNu");
@@ -108,8 +110,7 @@ namespace OBS_Net.DAL.Migrations
 
                     b.HasOne("OBS_Net.Entities.Tables.Teacher", "Teacher")
                         .WithMany("MeLessons")
-                        .HasForeignKey("TeacherId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("TeacherId");
                 });
 #pragma warning restore 612, 618
         }
